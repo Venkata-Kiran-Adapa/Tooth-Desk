@@ -1,0 +1,34 @@
+.profile {
+  padding: 5px;
+  background-color: grey;
+}
+
+@media (min-width: 576px) {
+  .profile {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile {
+    width: 70%;
+  }
+}
+
+@media (min-width: 992px) {
+  .profile {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .profile {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .profile {
+    width: 30%;
+  }
+}
