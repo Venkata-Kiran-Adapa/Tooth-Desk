@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# Tooth Desk 🦷
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Tooth Desk** is a responsive Dental Center Management Dashboard built using **React.js** and **Bootstrap**. It offers role-based access for both **Admin** and **Patients** and includes seamless localStorage-based authentication, appointment tracking, incident/document management, and more.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🔑 Login Credentials
 
-### `npm start`
+| Role    | Email              | Password   |
+|---------|--------------------|------------|
+| Admin   | admin@entnt.in     | admin123   |
+| Patient | john@entnt.in      | patient123 |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+### 🔐 Authentication
+- Simulated login/logout system
+- Admin and Patient roles with localStorage session persistence
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 👨‍⚕️ Admin Dashboard
+- View and manage all registered patients
+- Add, edit, and review incidents (dental cases) per patient
+- Upload and access supporting documents (PDFs, images)
+- Calendar view of all appointments
 
-### `npm run build`
+### 🧑‍💼 Patient Dashboard
+- Personalized greeting
+- View **upcoming appointments** (based on current date and status)
+- Review **appointment history** with details like:
+  - Visit reason
+  - Notes
+  - Cost
+  - Status
+  - Attached documents (viewable in-browser)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🏠 Landing Page (for unauthenticated users)
+- Engaging hero section with inspirational quote and animated image carousel
+- Services section: Fluoride Treatment, Cavity Filling, Teeth Whitening
+- Appointment prompt with call-to-action
+- Testimonials carousel from previous patients
+- Footer with contact details and navigation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 📁 Incident Structure Example
+```json
+{
+  "id": "i2",
+  "patientId": "p1",
+  "title": "Dental Cleaning",
+  "description": "Routine cleaning and polishing",
+  "comments": "Requested fluoride treatment",
+  "appointmentDate": "2025-07-08T09:30:00",
+  "cost": 60,
+  "status": "Scheduled",
+  "files": [
+    {
+      "name": "cleaning-record.pdf",
+      "url": "https://file-examples.com/..."
+    }
+  ]
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🧰 Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend**: React.js (Functional Components, Hooks)
+- **Styling**: Bootstrap 5 (grid, navbar, cards, carousel)
+- **State Management**: useState, useEffect
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Data Storage**: localStorage
+- **Animations**: Scroll-based reveal with `react-intersection-observer`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📁 Folder Structure (Partial)
+```
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── images
+├── src/
+│   ├── Components/
+│   │   ├── Admin_page/
+│   │   │   ├── AdminCalenderView/
+│   │   │   │   └── AdminCalendarView.js
+│   │   │   ├── AdminDashBoard/
+│   │   │   │   └── AdminDashBoard.js
+│   │   │   ├── IncidentInfoAdmin/
+│   │   │   │   └── IncidentInfoAdmin.js
+│   │   │   ├── landingPageAdmin/
+│   │   │   │   └── AdminLandingPage.js
+│   │   │   └── PatientsInfoAdmin/
+│   │   │       └── PatientsInfoAdmin.js
+│   │   ├── greet.js
+│   │   ├── home_page/
+│   │   │   ├── Header/
+│   │   │   │   └── Header.js
+│   │   │   ├── Landing_Page/
+│   │   │   │   └── Main.js
+│   │   │   ├── Services/
+│   │   │   │   └── Service.js
+│   │   │   └── Testimonials/
+│   │   │       └── Testimonial.js
+│   │   ├── Login_Page/
+│   │   │   └── Login.js
+│   │   ├── Patient_page/
+│   │   │   ├── past_Appointments/
+│   │   │   │   └── past_Appointments.js
+│   │   │   ├── Patient_DashBoard/
+│   │   │   │   └── Patient_DashBoard.js
+│   │   │   ├── profile_Card/
+│   │   │   │   ├── profile_card.css
+│   │   │   │   └── profile_card.js
+│   │   │   └── upcoming_Appointments/
+│   │   │       └── upcoming_Appointments.js
+│   │   ├── Reveal_On_scroll/
+│   │   │   ├── scroll.css
+│   │   │   └── scroll.js
+│   │   ├── appointment/
+│   │   │   └── appointment.js
+│   │   ├── footer/
+│   │       └── footer.js
+│   ├── App.js
+│   ├── index.css
+│   └── index.js
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📌 Usage
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm start`
+4. Login with credentials above to explore the Admin or Patient view
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
